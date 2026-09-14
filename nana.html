@@ -1,0 +1,3301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>464 Days of Becoming Us ❤️</title>
+
+<!-- =========================================================
+     FONTS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #120b13;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+:root {
+    --pink: #ff719d;
+    --light-pink: #ffb6ca;
+    --rose: #e84f7b;
+    --dark: #120b13;
+    --card: rgba(255,255,255,.07);
+    --border: rgba(255,255,255,.12);
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,113,157,.20),
+            transparent 35%
+        ),
+        #120b13;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.loader-heart {
+    font-size: 60px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.bg-glow {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,113,157,.12),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(184,86,255,.10),
+            transparent 25%
+        );
+}
+
+.noise {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    pointer-events: none;
+
+    opacity: .035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+#particles {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 10;
+}
+
+.particle {
+    position: absolute;
+
+    color: rgba(255,113,157,.7);
+
+    animation:
+        floatUp linear forwards;
+}
+
+@keyframes floatUp {
+
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: .8;
+    }
+
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+    position: fixed;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(900px, 92%);
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 12px 18px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 50px;
+
+    background:
+        rgba(18,11,19,.65);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+.logo {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 24px;
+
+    color:
+        var(--light-pink);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color:
+        rgba(255,255,255,.7);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+.music-btn {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 55px;
+    height: 55px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,113,157,.2);
+
+    backdrop-filter:
+        blur(12px);
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 200;
+
+    font-size: 20px;
+
+    transition: .3s;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        120px 20px 80px;
+
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.small-label {
+    color:
+        var(--light-pink);
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(80px, 14vw, 180px);
+
+    line-height: .75;
+
+    font-weight: 500;
+
+    background:
+        linear-gradient(
+            120deg,
+            #fff,
+            #ffb6ca,
+            #ff719d,
+            #fff
+        );
+
+    background-size: 250%;
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    animation:
+        gradientMove 7s
+        infinite linear;
+
+    cursor: pointer;
+}
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 250%;
+    }
+
+}
+
+.hero-subtitle {
+
+    margin-top: 40px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    color:
+        rgba(255,255,255,.8);
+}
+
+.hero-date {
+
+    margin-top: 15px;
+
+    color:
+        rgba(255,255,255,.5);
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+.scroll-down {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(255,255,255,.5);
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section {
+    padding:
+        130px 7%;
+}
+
+.section-label {
+
+    color:
+        var(--pink);
+
+    text-transform:
+        uppercase;
+
+    letter-spacing: 4px;
+
+    font-size: 11px;
+
+    margin-bottom: 15px;
+}
+
+.section-title {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(45px, 6vw, 80px);
+
+    font-weight: 500;
+
+    margin-bottom: 60px;
+}
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
+
+.counter-section {
+    text-align: center;
+}
+
+.counter {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(100px, 18vw, 220px);
+
+    line-height: .8;
+
+    color:
+        var(--pink);
+
+    text-shadow:
+        0 0 50px
+        rgba(255,113,157,.3);
+}
+
+.counter-text {
+
+    margin-top: 30px;
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+}
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+.calendar-area {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.calendar-wrapper {
+
+    position: relative;
+
+    width:
+        min(500px, 90vw);
+
+    height: 580px;
+
+    perspective: 1200px;
+
+    margin-bottom: 50px;
+}
+
+.calendar-card {
+
+    position: absolute;
+
+    inset: 0;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.13),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.4);
+
+    backdrop-filter:
+        blur(20px);
+
+    transform-origin:
+        left center;
+
+    transition:
+        transform .9s
+        cubic-bezier(.77,0,.18,1),
+        opacity .7s;
+}
+
+.calendar-card.flipping {
+
+    transform:
+        rotateY(-105deg)
+        translateX(-30px);
+
+    opacity: 0;
+}
+
+.calendar-top {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    margin-bottom: 50px;
+}
+
+.calendar-month {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 45px;
+}
+
+.calendar-year {
+
+    color:
+        var(--pink);
+
+    font-size: 18px;
+}
+
+.weekdays,
+.calendar-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 8px;
+}
+
+.weekdays div {
+
+    text-align: center;
+
+    font-size: 11px;
+
+    color:
+        rgba(255,255,255,.4);
+}
+
+.calendar-grid {
+
+    margin-top: 20px;
+}
+
+.day {
+
+    aspect-ratio: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 13px;
+
+    color:
+        rgba(255,255,255,.7);
+
+    position: relative;
+}
+
+.day.special {
+
+    background:
+        var(--pink);
+
+    color: white;
+
+    box-shadow:
+        0 0 25px
+        rgba(255,113,157,.5);
+}
+
+.day.special::after {
+
+    content: "♥";
+
+    position: absolute;
+
+    font-size: 8px;
+
+    bottom: -5px;
+}
+
+.calendar-caption {
+
+    text-align: center;
+
+    color:
+        rgba(255,255,255,.5);
+
+    font-size: 13px;
+
+    margin-top: 20px;
+
+    min-height: 20px;
+}
+
+.calendar-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.btn {
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    background:
+        rgba(255,255,255,.06);
+
+    color: white;
+
+    padding:
+        14px 25px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.btn:hover {
+
+    background:
+        var(--pink);
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            transparent,
+            var(--pink),
+            transparent
+        );
+}
+
+.timeline-item {
+
+    width: 50%;
+
+    padding: 30px;
+
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+
+    margin-left: 50%;
+}
+
+.timeline-dot {
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background:
+        var(--pink);
+
+    top: 40px;
+
+    box-shadow:
+        0 0 20px
+        var(--pink);
+}
+
+.timeline-item:nth-child(odd)
+.timeline-dot {
+
+    right: -6px;
+}
+
+.timeline-item:nth-child(even)
+.timeline-dot {
+
+    left: -6px;
+}
+
+.timeline-card {
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid
+        var(--border);
+}
+
+.timeline-date {
+
+    color:
+        var(--pink);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.timeline-card h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+.timeline-card p {
+
+    color:
+        rgba(255,255,255,.55);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(12, 1fr);
+
+    gap: 15px;
+}
+
+.gallery-item {
+
+    height: 350px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    cursor: pointer;
+
+    background:
+        #24151f;
+}
+
+.gallery-item:nth-child(1) {
+    grid-column: span 7;
+}
+
+.gallery-item:nth-child(2) {
+    grid-column: span 5;
+}
+
+.gallery-item:nth-child(3) {
+    grid-column: span 5;
+}
+
+.gallery-item:nth-child(4) {
+    grid-column: span 7;
+}
+
+.gallery-item img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .7s;
+}
+
+.gallery-item:hover img {
+
+    transform:
+        scale(1.08);
+}
+
+.gallery-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.7)
+        );
+
+    opacity: 0;
+
+    transition: .4s;
+}
+
+.gallery-item:hover
+.gallery-overlay {
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+#lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 500;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(0,0,0,.92);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+#lightbox img {
+
+    max-width: 90%;
+    max-height: 85%;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.7);
+}
+
+.close-lightbox {
+
+    position: absolute;
+
+    top: 25px;
+    right: 35px;
+
+    font-size: 35px;
+
+    cursor: pointer;
+
+    color: white;
+}
+
+
+/* =========================================================
+   NEW MEMORY MAP
+========================================================= */
+
+.map-container {
+
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+
+/*
+    This is NOT Leaflet.
+    This is NOT Google Maps iframe.
+
+    It is a custom romantic map card.
+*/
+
+.memory-map {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 500px;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255,113,157,.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(184,86,255,.10),
+            transparent 35%
+        ),
+
+        #151016;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.4);
+}
+
+
+/* map roads */
+
+.memory-map::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .20;
+
+    background-image:
+
+        linear-gradient(
+            25deg,
+            transparent 47%,
+            rgba(255,255,255,.20) 48%,
+            transparent 49%
+        ),
+
+        linear-gradient(
+            150deg,
+            transparent 48%,
+            rgba(255,255,255,.15) 49%,
+            transparent 50%
+        ),
+
+        linear-gradient(
+            80deg,
+            transparent 49%,
+            rgba(255,255,255,.10) 50%,
+            transparent 51%
+        );
+
+    background-size:
+        180px 180px,
+        230px 230px,
+        300px 300px;
+}
+
+
+/* grid */
+
+.map-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .12;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.1) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.1) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        45px 45px;
+}
+
+
+/* route */
+
+.memory-route {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+.memory-route path {
+
+    fill: none;
+
+    stroke:
+        rgba(255,113,157,.75);
+
+    stroke-width: 3;
+
+    stroke-linecap: round;
+
+    stroke-dasharray:
+        8 12;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,113,157,.5)
+        );
+
+    animation:
+        routeAnimation
+        3s linear infinite;
+}
+
+@keyframes routeAnimation {
+
+    to {
+        stroke-dashoffset: -40;
+    }
+
+}
+
+
+/* map labels */
+
+.map-label {
+
+    position: absolute;
+
+    z-index: 3;
+
+    color:
+        rgba(255,255,255,.30);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform:
+        uppercase;
+}
+
+.map-label.one {
+
+    left: 10%;
+
+    top: 18%;
+}
+
+.map-label.two {
+
+    left: 31%;
+
+    bottom: 18%;
+}
+
+
+/* coordinates */
+
+.map-coordinates {
+
+    position: absolute;
+
+    left: 30px;
+
+    bottom: 25px;
+
+    z-index: 4;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,.25);
+}
+
+
+/* location marker */
+
+.location-pin {
+
+    position: absolute;
+
+    right: 15%;
+
+    top: 19%;
+
+    z-index: 10;
+
+    width: 70px;
+    height: 70px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,113,157,.12);
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: .3s;
+}
+
+.location-pin:hover {
+
+    transform:
+        scale(1.12);
+}
+
+.location-pin::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 10px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9fba,
+            #ff4e82
+        );
+
+    box-shadow:
+        0 0 35px
+        rgba(255,113,157,.6);
+}
+
+.location-pin span {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 22px;
+
+    color: white;
+}
+
+
+/* pulse */
+
+.location-pin::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    border:
+        1px solid
+        rgba(255,113,157,.7);
+
+    border-radius: 50%;
+
+    animation:
+        markerPulse 2s infinite;
+}
+
+@keyframes markerPulse {
+
+    0% {
+        transform: scale(.8);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+
+}
+
+
+/* location card */
+
+.location-card {
+
+    position: absolute;
+
+    right: 35px;
+
+    bottom: 35px;
+
+    width: 330px;
+
+    padding: 28px;
+
+    z-index: 20;
+
+    border-radius: 20px;
+
+    background:
+        rgba(18,11,19,.88);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.5);
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    pointer-events: none;
+
+    transition:
+        .45s
+        cubic-bezier(.22,1,.36,1);
+}
+
+.location-card.active {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    pointer-events:
+        auto;
+}
+
+.location-card-label {
+
+    color:
+        rgba(255,255,255,.4);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.location-card-date {
+
+    color:
+        var(--pink);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.location-card h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    margin-bottom: 3px;
+}
+
+.location-card-location {
+
+    color:
+        rgba(255,255,255,.5);
+
+    font-size: 13px;
+}
+
+.location-divider {
+
+    width: 45px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.2);
+
+    margin:
+        20px 0;
+}
+
+.location-card-text {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    color:
+        rgba(255,255,255,.70);
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+}
+
+
+/* OPEN GOOGLE MAP BUTTON */
+
+.open-map {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    padding:
+        13px 18px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(255,113,157,.14);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    transition: .3s;
+}
+
+.open-map:hover {
+
+    background:
+        var(--pink);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* location info */
+
+.location-info {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap: 30px;
+
+    padding:
+        30px 0;
+}
+
+.location-date {
+
+    color:
+        var(--pink);
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+.location-title {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 40px;
+
+    line-height: 1.05;
+
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   POETRY
+========================================================= */
+
+.poetry-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,113,157,.12),
+            transparent 50%
+        );
+}
+
+.poetry {
+
+    max-width: 850px;
+}
+
+.poetry h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(60px, 9vw, 120px);
+
+    font-weight: 400;
+
+    margin-bottom: 50px;
+}
+
+.poetry-text {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(25px, 3vw, 38px);
+
+    line-height: 1.5;
+
+    color:
+        rgba(255,255,255,.8);
+}
+
+.signature {
+
+    margin-top: 50px;
+
+    color:
+        var(--pink);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    text-align: center;
+
+    padding:
+        50px 20px;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.active {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:700px) {
+
+    nav {
+
+        justify-content:
+            center;
+    }
+
+    .nav-links {
+
+        display: none;
+    }
+
+    section {
+
+        padding:
+            100px 5%;
+    }
+
+    .calendar-wrapper {
+
+        height: 500px;
+    }
+
+    .calendar-card {
+
+        padding: 25px;
+    }
+
+    .timeline::before {
+
+        left: 10px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+
+        width: 100%;
+
+        margin-left: 0;
+
+        padding-left: 40px;
+    }
+
+    .timeline-item:nth-child(odd)
+    .timeline-dot,
+    .timeline-item:nth-child(even)
+    .timeline-dot {
+
+        left: 4px;
+
+        right: auto;
+    }
+
+    .gallery {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .gallery-item,
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3),
+    .gallery-item:nth-child(4) {
+
+        grid-column: span 1;
+
+        height: 300px;
+    }
+
+    .memory-map {
+
+        height: 600px;
+    }
+
+    .location-pin {
+
+        right: 25%;
+
+        top: 17%;
+    }
+
+    .location-card {
+
+        left: 18px;
+        right: 18px;
+
+        bottom: 18px;
+
+        width: auto;
+    }
+
+    .location-info {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+    .location-title {
+
+        font-size: 34px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+button,
+a {
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+
+    outline:
+        2px solid
+        var(--pink);
+
+    outline-offset: 4px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ========================================================
+     LOADER
+========================================================= -->
+
+<div id="loader">
+    <div class="loader-heart">♥</div>
+</div>
+
+
+<div class="bg-glow"></div>
+<div class="noise"></div>
+<div id="particles"></div>
+
+
+<!-- ========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <div class="logo">
+        us.
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#story">
+            STORY
+        </a>
+
+        <a href="#calendar">
+            CALENDAR
+        </a>
+
+        <a href="#gallery">
+            GALLERY
+        </a>
+
+        <a href="#firstmet">
+            FIRST MET
+        </a>
+
+        <a href="#poetry">
+            POETRY
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ========================================================
+     MUSIC
+========================================================= -->
+
+<audio
+    id="music"
+    loop
+>
+
+    <source
+        src="music/anything.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+<button
+    class="music-btn"
+    id="musicBtn"
+    title="Play our song"
+>
+    ♫
+</button>
+
+
+<!-- ========================================================
+     HERO
+========================================================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-label">
+            07.06.2025 — 14.09.2026
+        </div>
+
+        <h1>
+            464
+        </h1>
+
+        <div class="hero-subtitle">
+            days of becoming us.
+        </div>
+
+        <div class="hero-date">
+            and somehow, I'd choose you again.
+        </div>
+
+    </div>
+
+    <div class="scroll-down">
+        SCROLL TO REMEMBER
+    </div>
+
+</header>
+
+
+<!-- ========================================================
+     COUNTER
+========================================================= -->
+
+<section
+    class="counter-section reveal"
+    id="story"
+>
+
+    <div class="section-label">
+        our little forever
+    </div>
+
+    <div class="counter">
+        464
+    </div>
+
+    <div class="counter-text">
+
+        days,
+        thousands of moments,
+        <br>
+
+        one story.
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     CALENDAR
+========================================================= -->
+
+<section
+    id="calendar"
+    class="calendar-area reveal"
+>
+
+    <div class="section-label">
+        our calendar
+    </div>
+
+    <h2 class="section-title">
+        Every month had a story.
+    </h2>
+
+    <div
+        class="calendar-wrapper"
+        id="calendarWrapper"
+    ></div>
+
+    <div
+        class="calendar-caption"
+        id="calendarCaption"
+    >
+        Our journey begins here.
+    </div>
+
+    <div class="calendar-buttons">
+
+        <button
+            class="btn"
+            id="prevMonth"
+        >
+            ← Previous
+        </button>
+
+        <button
+            class="btn"
+            id="nextMonth"
+        >
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     TIMELINE
+========================================================= -->
+
+<section class="reveal">
+
+    <div class="section-label">
+        pieces of us
+    </div>
+
+    <h2 class="section-title">
+        The moments we keep.
+    </h2>
+
+    <div class="timeline">
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="timeline-date">
+                    07 JUNE 2025
+                </div>
+
+                <h3>
+                    The Beginning
+                </h3>
+
+                <p>
+                    Maybe we didn't know where this
+                    would take us. But somehow,
+                    this date became the beginning
+                    of something beautiful.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="timeline-date">
+                    SOMEWHERE ALONG THE WAY
+                </div>
+
+                <h3>
+                    We Became Us
+                </h3>
+
+                <p>
+                    Somewhere between ordinary days,
+                    random conversations and quiet moments,
+                    you became my favorite person.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="timeline-date">
+                    04 APRIL 2026
+                </div>
+
+                <h3>
+                    Our First Met
+                </h3>
+
+                <p>
+                    A day that would later become
+                    one of the most important
+                    coordinates in our story.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="timeline-date">
+                    14 SEPTEMBER 2026
+                </div>
+
+                <h3>
+                    464 Days
+                </h3>
+
+                <p>
+                    And we're still here.
+                    Still choosing each other.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     GALLERY
+========================================================= -->
+
+<section
+    id="gallery"
+    class="reveal"
+>
+
+    <div class="section-label">
+        our gallery
+    </div>
+
+    <h2 class="section-title">
+        Little pieces of forever.
+    </h2>
+
+
+    <div class="gallery">
+
+
+        <div
+            class="gallery-item"
+            onclick="openLightbox(this)"
+        >
+
+            <img
+                src="n1.jpeg"
+                alt="Our memory 1"
+            >
+
+            <div class="gallery-overlay">
+                our favorite memory.
+            </div>
+
+        </div>
+
+
+        <div
+            class="gallery-item"
+            onclick="openLightbox(this)"
+        >
+
+            <img
+                src="n2.jpeg"
+                alt="Our memory 2"
+            >
+
+            <div class="gallery-overlay">
+                a day worth remembering.
+            </div>
+
+        </div>
+
+
+        <div
+            class="gallery-item"
+            onclick="openLightbox(this)"
+        >
+
+            <img
+                src="n3.jpeg"
+                alt="Our memory 3"
+            >
+
+            <div class="gallery-overlay">
+                somewhere between then and now.
+            </div>
+
+        </div>
+
+
+        <div
+            class="gallery-item"
+            onclick="openLightbox(this)"
+        >
+
+            <img
+                src="n4.jpeg"
+                alt="Our memory 4"
+            >
+
+            <div class="gallery-overlay">
+                still my favorite.
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div id="lightbox">
+
+    <div
+        class="close-lightbox"
+        onclick="closeLightbox()"
+    >
+        ×
+    </div>
+
+    <img
+        id="lightboxImage"
+        alt="Memory"
+    >
+
+</div>
+
+
+<!-- ========================================================
+     FIRST MET
+========================================================= -->
+
+<section
+    id="firstmet"
+    class="reveal"
+>
+
+    <div class="section-label">
+        one important coordinate
+    </div>
+
+    <h2 class="section-title">
+        Our First Met.
+    </h2>
+
+
+    <div class="map-container">
+
+        <div class="memory-map">
+
+            <div class="map-grid"></div>
+
+
+            <!-- decorative route -->
+
+            <svg
+                class="memory-route"
+                viewBox="0 0 1000 500"
+                preserveAspectRatio="none"
+            >
+
+                <path
+                    d="
+                        M 90 400
+                        C 180 350,
+                          210 260,
+                          330 300
+                        C 450 340,
+                          480 190,
+                          610 240
+                        C 710 280,
+                          750 150,
+                          850 105
+                    "
+                />
+
+            </svg>
+
+
+            <div class="map-label one">
+                where it all began
+            </div>
+
+            <div class="map-label two">
+                a place worth remembering
+            </div>
+
+
+            <!-- pin -->
+
+            <button
+                class="location-pin"
+                id="locationPin"
+                aria-label="Open our first met memory"
+            >
+
+                <span>
+                    ♥
+                </span>
+
+            </button>
+
+
+            <!-- memory popup -->
+
+            <div
+                class="location-card"
+                id="locationCard"
+            >
+
+                <div class="location-card-label">
+                    OUR FIRST MET
+                </div>
+
+                <div class="location-card-date">
+                    04 APRIL 2026
+                </div>
+
+                <h3>
+                    Lorong Temu
+                </h3>
+
+                <div class="location-card-location">
+                    Cianjur, Jawa Barat
+                </div>
+
+                <div class="location-divider"></div>
+
+                <div class="location-card-text">
+
+                    Some places are just places.
+                    Until someone makes them
+                    a memory.
+
+                </div>
+
+
+                <!--
+                    REAL GOOGLE MAPS LINK
+
+                    Clicking this opens Google Maps.
+                    No iframe.
+                    No Leaflet.
+                    No map library.
+                -->
+
+                <a
+                    class="open-map"
+                    href="https://www.google.com/maps/search/?api=1&query=Lorong+Temu+Cianjur"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    OPEN IN GOOGLE MAPS ↗
+                </a>
+
+            </div>
+
+
+            <div class="map-coordinates">
+                LORONG TEMU · CIANJUR
+            </div>
+
+        </div>
+
+
+        <div class="location-info">
+
+            <div>
+
+                <div class="location-date">
+                    04 APRIL 2026
+                </div>
+
+                <div class="location-title">
+
+                    Lorong Temu,
+                    <br>
+
+                    where we first met.
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <p
+                    style="
+                        color:rgba(255,255,255,.5);
+                        max-width:350px;
+                        line-height:1.7;
+                    "
+                >
+
+                    There are places we visit,
+                    and places that become
+                    part of us.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     POETRY
+========================================================= -->
+
+<section
+    id="poetry"
+    class="poetry-section reveal"
+>
+
+    <div class="poetry">
+
+        <div class="section-label">
+            for you
+        </div>
+
+
+        <h2>
+
+            If I could
+            <br>
+
+            choose again.
+
+        </h2>
+
+
+        <div class="poetry-text">
+
+            If I had to meet you again,
+            <br>
+
+            in another city,
+            <br>
+
+            another lifetime,
+            <br>
+
+            another version of myself—
+
+            <br><br>
+
+            I think I'd still find my way to you.
+
+            <br><br>
+
+            Because maybe love
+            <br>
+
+            isn't about finding someone once.
+
+            <br>
+
+            Maybe it's about
+            <br>
+
+            finding them again,
+            <br>
+
+            in every ordinary day.
+
+            <br><br>
+
+            And after 464 days,
+            <br>
+
+            if you asked me where I'd rather be—
+
+            <br><br>
+
+            I'd still say,
+
+            <br><br>
+
+            <strong>
+                right here.
+                <br>
+                with you.
+            </strong>
+
+        </div>
+
+
+        <div class="signature">
+            — always, us.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    Made with love for our 464 days.
+
+    <br><br>
+
+    07.06.2025 — 14.09.2026
+
+</footer>
+
+
+<!-- ========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(
+            () => {
+
+                const loader =
+                    document.getElementById(
+                        "loader"
+                    );
+
+                loader.style.opacity = "0";
+
+                loader.style.visibility =
+                    "hidden";
+
+            },
+            1200
+        );
+
+    }
+);
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const music =
+    document.getElementById(
+        "music"
+    );
+
+const musicBtn =
+    document.getElementById(
+        "musicBtn"
+    );
+
+let isPlaying = false;
+
+
+musicBtn.addEventListener(
+    "click",
+    async () => {
+
+        if (!isPlaying) {
+
+            try {
+
+                await music.play();
+
+                isPlaying = true;
+
+                musicBtn.innerHTML =
+                    "❚❚";
+
+            }
+
+            catch(error) {
+
+                alert(
+                    "music/anything.mp3"
+                );
+
+            }
+
+        }
+
+        else {
+
+            music.pause();
+
+            isPlaying = false;
+
+            musicBtn.innerHTML =
+                "♫";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+function createParticle() {
+
+    const particle =
+        document.createElement(
+            "div"
+        );
+
+    particle.className =
+        "particle";
+
+
+    const symbols = [
+        "♥",
+        "♡",
+        "✦",
+        "·"
+    ];
+
+
+    particle.innerHTML =
+        symbols[
+            Math.floor(
+                Math.random()
+                *
+                symbols.length
+            )
+        ];
+
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+
+    particle.style.fontSize =
+        8 +
+        Math.random() * 15 +
+        "px";
+
+
+    particle.style.animationDuration =
+        7 +
+        Math.random() * 8 +
+        "s";
+
+
+    document
+        .getElementById(
+            "particles"
+        )
+        .appendChild(
+            particle
+        );
+
+
+    setTimeout(
+        () => {
+
+            particle.remove();
+
+        },
+        15000
+    );
+
+}
+
+
+setInterval(
+    createParticle,
+    500
+);
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+const calendarWrapper =
+    document.getElementById(
+        "calendarWrapper"
+    );
+
+const caption =
+    document.getElementById(
+        "calendarCaption"
+    );
+
+
+/*
+    IMPORTANT:
+
+    JavaScript month:
+    0 = January
+    5 = June
+    8 = September
+*/
+
+const startDate =
+    new Date(
+        2025,
+        5,
+        7
+    );
+
+const endDate =
+    new Date(
+        2026,
+        8,
+        14
+    );
+
+
+let currentDate =
+    new Date(
+        2025,
+        5,
+        1
+    );
+
+
+const months = [
+
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+
+];
+
+
+const weekdays = [
+
+    "SUN",
+    "MON",
+    "TUE",
+    "WED",
+    "THU",
+    "FRI",
+    "SAT"
+
+];
+
+
+function renderCalendar() {
+
+    calendarWrapper.innerHTML =
+        "";
+
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+    card.className =
+        "calendar-card";
+
+
+    const month =
+        currentDate.getMonth();
+
+    const year =
+        currentDate.getFullYear();
+
+
+    const firstDay =
+        new Date(
+            year,
+            month,
+            1
+        ).getDay();
+
+
+    const daysInMonth =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+
+    let html = `
+
+        <div class="calendar-top">
+
+            <div class="calendar-month">
+                ${months[month]}
+            </div>
+
+            <div class="calendar-year">
+                ${year}
+            </div>
+
+        </div>
+
+
+        <div class="weekdays">
+
+            ${weekdays
+                .map(
+                    day =>
+                        `<div>${day}</div>`
+                )
+                .join("")
+            }
+
+        </div>
+
+
+        <div class="calendar-grid">
+
+    `;
+
+
+    for (
+        let i = 0;
+        i < firstDay;
+        i++
+    ) {
+
+        html +=
+            `<div></div>`;
+
+    }
+
+
+    for (
+        let day = 1;
+        day <= daysInMonth;
+        day++
+    ) {
+
+        const date =
+            new Date(
+                year,
+                month,
+                day
+            );
+
+
+        const isStart =
+            date.toDateString() ===
+            startDate.toDateString();
+
+
+        const isEnd =
+            date.toDateString() ===
+            endDate.toDateString();
+
+
+        let classes =
+            "day";
+
+
+        if (
+            isStart ||
+            isEnd
+        ) {
+
+            classes +=
+                " special";
+
+        }
+
+
+        html += `
+
+            <div
+                class="${classes}"
+            >
+
+                ${day}
+
+            </div>
+
+        `;
+
+    }
+
+
+    html += `
+
+        </div>
+
+    `;
+
+
+    card.innerHTML =
+        html;
+
+
+    calendarWrapper.appendChild(
+        card
+    );
+
+
+    if (
+        year === 2025 &&
+        month === 5
+    ) {
+
+        caption.innerHTML =
+            "7 June 2025 — where everything began. ♥";
+
+    }
+
+    else if (
+        year === 2026 &&
+        month === 8
+    ) {
+
+        caption.innerHTML =
+            "14 September 2026 — 464 days of becoming us. ♥";
+
+    }
+
+    else {
+
+        caption.innerHTML =
+            `${months[month]} ${year} — another chapter of us.`;
+
+    }
+
+}
+
+
+/* =========================================================
+   CALENDAR FLIP
+========================================================= */
+
+function changeMonth(
+    direction
+) {
+
+    const card =
+        document.querySelector(
+            ".calendar-card"
+        );
+
+
+    if (!card) return;
+
+
+    card.classList.add(
+        "flipping"
+    );
+
+
+    setTimeout(
+        () => {
+
+            currentDate.setMonth(
+                currentDate.getMonth()
+                +
+                direction
+            );
+
+
+            const minimum =
+                new Date(
+                    2025,
+                    5,
+                    1
+                );
+
+
+            const maximum =
+                new Date(
+                    2026,
+                    8,
+                    1
+                );
+
+
+            if (
+                currentDate <
+                minimum
+            ) {
+
+                currentDate =
+                    new Date(
+                        2025,
+                        5,
+                        1
+                    );
+
+            }
+
+
+            if (
+                currentDate >
+                maximum
+            ) {
+
+                currentDate =
+                    new Date(
+                        2026,
+                        8,
+                        1
+                    );
+
+            }
+
+
+            renderCalendar();
+
+        },
+        500
+    );
+
+}
+
+
+document
+    .getElementById(
+        "nextMonth"
+    )
+    .addEventListener(
+        "click",
+        () => changeMonth(1)
+    );
+
+
+document
+    .getElementById(
+        "prevMonth"
+    )
+    .addEventListener(
+        "click",
+        () => changeMonth(-1)
+    );
+
+
+renderCalendar();
+
+
+/* =========================================================
+   GALLERY LIGHTBOX
+========================================================= */
+
+function openLightbox(
+    element
+) {
+
+    const image =
+        element.querySelector(
+            "img"
+        );
+
+
+    document
+        .getElementById(
+            "lightboxImage"
+        )
+        .src =
+        image.src;
+
+
+    document
+        .getElementById(
+            "lightbox"
+        )
+        .style.display =
+        "flex";
+
+}
+
+
+function closeLightbox() {
+
+    document
+        .getElementById(
+            "lightbox"
+        )
+        .style.display =
+        "none";
+
+}
+
+
+document
+    .getElementById(
+        "lightbox"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target ===
+                this
+            ) {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+
+/* ESC CLOSE */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   NEW MEMORY MAP
+========================================================= */
+
+const locationPin =
+    document.getElementById(
+        "locationPin"
+    );
+
+const locationCard =
+    document.getElementById(
+        "locationCard"
+    );
+
+
+locationPin.addEventListener(
+    "click",
+    event => {
+
+        event.stopPropagation();
+
+        locationCard.classList.toggle(
+            "active"
+        );
+
+    }
+);
+
+
+/* click outside closes memory */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if (
+            !locationCard.contains(
+                event.target
+            )
+            &&
+            !locationPin.contains(
+                event.target
+            )
+        ) {
+
+            locationCard.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target
+                            .classList
+                            .add(
+                                "active"
+                            );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: .15
+        }
+    );
+
+
+document
+    .querySelectorAll(
+        ".reveal"
+    )
+    .forEach(
+        element => {
+
+            observer.observe(
+                element
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   EASTER EGG
+========================================================= */
+
+let clickCount = 0;
+
+
+document
+    .querySelector(
+        ".hero h1"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            clickCount++;
+
+
+            if (
+                clickCount >= 5
+            ) {
+
+                for (
+                    let i = 0;
+                    i < 30;
+                    i++
+                ) {
+
+                    setTimeout(
+                        createParticle,
+                        i * 80
+                    );
+
+                }
+
+
+                clickCount = 0;
+
+            }
+
+        }
+    );
+
+
+</script>
+
+</body>
+</html>
